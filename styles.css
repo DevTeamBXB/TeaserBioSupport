@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('fondoG.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden; /* Asegura que los elementos no sobresalgan */
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    filter: blur(10px); /* Aplica el filtro de desenfoque */
+    z-index: -2; /* Coloca el pseudo-elemento detrás del contenido */
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background: rgba(0, 0, 0, 0.7); /* Añade un overlay oscuro */
+    z-index: -1; /* Coloca el overlay detrás del contenido pero delante del pseudo-elemento anterior */
+}
+
+header {
+    width: 100%;
+    height: 200px; /* Ajusta según sea necesario */
+    overflow: hidden;
+    background-color: transparent; /* Fondo transparente */
+}
+
+.header-img {
+    width: 100%;
+    height: 200%;
+    object-fit: cover;
+}
+
+section {
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 0; /* Asegura que el contenido esté por encima del overlay */
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: -1;
+}
+
+.progress-container {
+    width: 80%;
+    background-color: #444;
+    margin: 0 auto;
+    border-radius: 25px;
+    position: relative;
+}
+
+.progress-bar {
+    width: 60%;
+    height: 20px;
+    background: linear-gradient(to right, #243873, #4AA534); /* Degradado de azul a verde */
+    border-radius: 25px;
+    position: relative;
+    text-align: center;
+}
+
+#progress-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+#coming-soon {
+    font-size: 24px;
+    color: #4caf50;
+    animation: fadeIn 2s ease-out forwards;
+}
+
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.team-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    margin: 10px;
+    text-align: center;
+}
+
+.team-img {
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
